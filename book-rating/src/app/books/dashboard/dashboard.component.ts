@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { Book } from '../shared/book';
 import { JsonPipe, NgFor } from '@angular/common';
 import { BookComponent } from '../book/book.component';
