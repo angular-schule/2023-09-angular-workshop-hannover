@@ -1,13 +1,14 @@
 import { Component, Input } from '@angular/core';
 import { Book } from '../shared/book';
-import { JsonPipe } from '@angular/common';
+import { JsonPipe, NgFor } from '@angular/common';
+import { BookComponent } from '../book/book.component';
 
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
   imports: [
-    JsonPipe
+    JsonPipe, BookComponent, NgFor
   ],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
