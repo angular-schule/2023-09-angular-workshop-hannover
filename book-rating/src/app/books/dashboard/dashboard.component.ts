@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Book } from '../books/shared/book';
+import { Book } from '../shared/book';
 import { JsonPipe } from '@angular/common';
 
 
