@@ -10,6 +10,15 @@
     </div>
     <p>{{ book.description }}</p>
 
+    <!--
+      Bad practice weil:
+
+      1. Single responsibility principle
+      2. Logik im Template
+      3. Keine Immutability
+
+    -->
+
     <button class="btn btn-primary me-2" (click)="book.rating = book.rating - 1">-</button>
     <button class="btn btn-primary" (click)="book.rating = book.rating + 1">+</button>
   </div>
