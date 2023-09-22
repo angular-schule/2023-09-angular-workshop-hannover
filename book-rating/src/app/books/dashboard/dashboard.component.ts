@@ -1,7 +1,8 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation, inject } from '@angular/core';
 import { Book } from '../shared/book';
 import { JsonPipe, NgFor } from '@angular/common';
 import { BookComponent } from '../book/book.component';
+import { BookRatingService } from '../shared/book-rating.service';
 
 
 @Component({
@@ -14,6 +15,9 @@ import { BookComponent } from '../book/book.component';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
+
+  br = inject(BookRatingService);
+
 
   books: Book[] = [
     {
@@ -35,5 +39,18 @@ export class DashboardComponent {
       rating: 1
     }
   ];
+
+  // "Alte Stil"
+  // constructor(private br: BookRatingService) { }
+
+  doRateDown(book: Book) {
+    console.log('DOWN!')
+    console.table(book);
+  }
+
+  doRateUp(book: Book) {
+    console.log('UP!')
+    console.table(book);
+  }
 
 }

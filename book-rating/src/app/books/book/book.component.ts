@@ -1,7 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { NgIf } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { Book } from '../shared/book';
-import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-book',
@@ -14,4 +14,18 @@ export class BookComponent {
 
   @Input({ required: true })
   book?: Book;
+
+  @Output()
+  rateDown = new EventEmitter<Book>();
+
+  @Output()
+  rateUp = new EventEmitter<Book>();
+
+  doRateDown() {
+    this.rateDown.emit(this.book);
+  }
+
+  doRateUp() {
+    this.rateUp.emit(this.book);
+  }
 }

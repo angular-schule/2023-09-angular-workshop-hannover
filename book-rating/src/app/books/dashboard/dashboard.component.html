@@ -1,6 +1,10 @@
 <!-- {{ books | json }} -->
 
 <app-book
+  (rateDown)="doRateDown($event)"
+  (rateUp)="doRateUp($event)"
   *ngFor="let b of books"
   [book]="b"
 />
+
+<h1>
