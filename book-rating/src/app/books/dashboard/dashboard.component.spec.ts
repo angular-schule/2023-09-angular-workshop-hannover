@@ -8,7 +8,7 @@ describe('DashboardComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [DashboardComponent]
+      imports: [DashboardComponent] // Vorsicht: Integrations-Test by default
     });
     fixture = TestBed.createComponent(DashboardComponent);
     component = fixture.componentInstance;
