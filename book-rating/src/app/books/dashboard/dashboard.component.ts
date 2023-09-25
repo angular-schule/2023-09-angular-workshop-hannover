@@ -18,7 +18,6 @@ export class DashboardComponent {
 
   br = inject(BookRatingService);
 
-
   books: Book[] = [
     {
       isbn: '000',
@@ -40,17 +39,19 @@ export class DashboardComponent {
     }
   ];
 
-  // "Alte Stil"
-  // constructor(private br: BookRatingService) { }
-
   doRateDown(book: Book) {
-    console.log('DOWN!')
-    console.table(book);
+    const ratedBook = this.br.rateDown(book);
+    this.updateAndSortList(ratedBook);
   }
 
   doRateUp(book: Book) {
-    console.log('UP!')
-    console.table(book);
+    const ratedBook = this.br.rateUp(book);
+    this.updateAndSortList(ratedBook);
   }
 
+  updateAndSortList(ratedBook: Book) {
+    this.books = this.books
+      .map(b => b.isbn === ratedBook.isbn ? ratedBook : b)
+      .sort((a, b) => b.rating - a.rating);
+  }
 }
