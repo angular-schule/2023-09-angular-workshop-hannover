@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation, inject } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, ViewEncapsulation, inject } from '@angular/core';
 import { Book } from '../shared/book';
 import { JsonPipe, NgFor } from '@angular/common';
 import { BookComponent } from '../book/book.component';
@@ -12,11 +12,20 @@ import { BookRatingService } from '../shared/book-rating.service';
     JsonPipe, BookComponent, NgFor
   ],
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DashboardComponent {
 
   br = inject(BookRatingService);
+  cd = inject(ChangeDetectorRef);
+
+  constructor() {
+    // setTimeout(() => {
+    //   this.books = [];
+    //   this.cd.detectChanges(); // in purer Verzweiflung!!
+    // }, 3000)
+  }
 
   books: Book[] = [
     {
