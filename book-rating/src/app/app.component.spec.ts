@@ -1,12 +1,28 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-dashboard',
+  standalone: true,
+  template: 'HALLO!'
+})
+export class DummyDashboardComponent {
+}
 
 describe('AppComponent', () => {
   beforeEach(() => TestBed.configureTestingModule({
     imports: [AppComponent]
   })
   .overrideComponent(AppComponent, {
-    set: { imports: [] }
+    // set: { imports: [], schemas: [NO_ERRORS_SCHEMA] } // Shallow Component Test
+
+    // 100% Unit Test
+    set: { imports: [
+      RouterTestingModule,
+      DummyDashboardComponent
+    ]}
   }));
 
   // it('should create the app', () => {
