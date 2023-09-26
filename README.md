@@ -10,7 +10,7 @@ In diesem Repository findest du alle Infos zur Vorbereitung und während des Wor
 # 🎮 NEU: RxJS Playground
 
 Du kannst dir entweder  
-* den Code als ZIP-Datei herunterladen: [rxjs-playground.zip]([XXX](https://github.com/angular-schule/2023-09-angular-workshop-hannover/files/12723433/rxjs-playground.zip))<br>**oder**<br>
+* den Code als ZIP-Datei herunterladen: [rxjs-playground.zip](https://github.com/angular-schule/2023-09-angular-workshop-hannover/files/12723433/rxjs-playground.zip)<br>**oder**<br>
 * dieses Repository per Git herunterladen und in den Ordner `rxjs-playground` wechseln.
 
 ```bash
