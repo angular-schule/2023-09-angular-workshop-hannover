@@ -5,6 +5,7 @@ import { BookCreateComponent } from '../book-create/book-create.component';
 import { BookComponent } from '../book/book.component';
 import { Book } from '../shared/book';
 import { BookRatingService } from '../shared/book-rating.service';
+import { BookStoreService } from '../shared/book-store.service';
 
 
 @Component({
@@ -20,35 +21,13 @@ import { BookRatingService } from '../shared/book-rating.service';
 export class DashboardComponent {
 
   br = inject(BookRatingService);
-  cd = inject(ChangeDetectorRef);
+  bs = inject(BookStoreService);
+
+  books: Book[] = [];
 
   constructor() {
-    // setTimeout(() => {
-    //   this.books = [];
-    //   this.cd.detectChanges(); // in purer Verzweiflung!!
-    // }, 3000)
+    this.bs.getAllBooks().subscribe(books => this.books = books);
   }
-
-  books: Book[] = [
-    {
-      isbn: '000',
-      title: 'Angular',
-      description: 'Tolles Buch',
-      rating: 5
-    },
-    {
-      isbn: '111',
-      title: 'AngularJS',
-      description: 'Altes Buch',
-      rating: 3
-    },
-    {
-      isbn: '222',
-      title: 'jQuery',
-      description: 'Veraltetes Buch',
-      rating: 1
-    }
-  ];
 
   doRateDown(book: Book) {
     const ratedBook = this.br.rateDown(book);
