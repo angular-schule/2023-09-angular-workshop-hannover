@@ -1,7 +1,9 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, ViewEncapsulation, inject } from '@angular/core';
-import { Book } from '../shared/book';
 import { JsonPipe, NgFor } from '@angular/common';
+import { ChangeDetectorRef, Component, inject } from '@angular/core';
+
+import { BookCreateComponent } from '../book-create/book-create.component';
 import { BookComponent } from '../book/book.component';
+import { Book } from '../shared/book';
 import { BookRatingService } from '../shared/book-rating.service';
 
 
@@ -9,7 +11,7 @@ import { BookRatingService } from '../shared/book-rating.service';
   selector: 'app-dashboard',
   standalone: true,
   imports: [
-    JsonPipe, BookComponent, NgFor
+    JsonPipe, BookComponent, NgFor, BookCreateComponent
   ],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
