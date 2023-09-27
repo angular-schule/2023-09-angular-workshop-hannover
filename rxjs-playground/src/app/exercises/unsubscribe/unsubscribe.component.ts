@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { Subject, ReplaySubject, timer, Subscription, takeWhile, takeUntil } from 'rxjs';
+import { Subject, ReplaySubject, timer, Subscription, takeWhile, takeUntil, take } from 'rxjs';
 import { HistoryComponent } from '../../shared/history/history.component';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 
@@ -29,7 +29,7 @@ export class UnsubscribeComponent implements OnDestroy {
 
       /******************************/
 
-      takeUntilDestroyed()
+      take(3)
 
       /******************************/
 
